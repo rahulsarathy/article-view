@@ -3,10 +3,13 @@ import axios from "axios";
 import "./article.scss";
 
 import Header from "./header.jsx";
+import Content from "../content/content.jsx";
+
+import useWindowDimensions from "./useWindowDimensions.js";
 
 let article_id = "4d327542bfabd80e34c3";
 
-export default class Article extends Component {
+class Article extends Component {
 	constructor(props) {
 		super(props);
 
@@ -31,34 +34,41 @@ export default class Article extends Component {
 			)
 			.then((res) => {
 				let data = res.data;
-				// console.log(data);
-				this.setState({
-					article_json: data,
-				});
+				this.setState(
+					{
+						article_json: data,
+					},
+					() => {}
+				);
 			});
-	}
-	createMarkup() {
-		return { __html: this.state.article_json.content };
 	}
 
 	render() {
+		let { height, offset, total_height } = this.props;
 		let { article_json } = this.state;
-		let { title, author } = article_json;
 
 		return (
 			<div className="article">
-				<Header />
-				<div className="content">
-					<div className="extras">
-						<h1 className="title">{title}</h1>
-						<h3 className="author">By {author}</h3>
-					</div>
-					<div
-						className="mercury-html"
-						dangerouslySetInnerHTML={this.createMarkup()}
-					></div>
-				</div>
+				<Header
+					height={height}
+					offset={offset}
+					total_height={total_height}
+				/>
+				<Content article_json={article_json} />
 			</div>
 		);
 	}
+}
+
+export default function ArticleWrapper() {
+	let { height, width, offset, total } = useWindowDimensions();
+
+	return (
+		<Article
+			width={width}
+			height={height}
+			offset={offset}
+			total_height={total}
+		/>
+	);
 }

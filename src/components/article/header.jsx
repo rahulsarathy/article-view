@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import MiniBar from "../minibar/minibar.jsx";
+import "./header.scss";
 
 export default class Header extends Component {
 	render() {
+		let { height, total_height, offset } = this.props;
 		return (
 			<div>
 				<div className="header">
@@ -21,7 +23,11 @@ export default class Header extends Component {
 						<hr></hr>
 						<div className="minibar-wrapper">
 							<div className="fixed-wrapper">
-								<MiniBar />
+								<MiniBar
+									height={height}
+									total_height={total_height}
+									offset={offset}
+								/>
 							</div>
 						</div>
 					</div>

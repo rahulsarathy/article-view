@@ -2,4 +2,22 @@
 	height: 560px;
 	width: 2px;
 	background-color: black;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+
+	.scroll {
+		position: absolute;
+		width: 200%;
+		background-color: white;
+	}
+}
+
+.minibar:hover {
+	width: 4px;
+	background-color: #007aff;
+	transition: all 0.2s ease-in-out;
+
+	.scroll {
+		// width: 4px;
+	}
 }

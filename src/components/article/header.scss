@@ -1,0 +1,53 @@
+$article-width: 640px;
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background-color: white;
+
+	.inner-header {
+		height: 56px;
+
+		width: 1155px;
+		margin: auto;
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		.estimation {
+			font-family: Helvetica;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 15px;
+			line-height: 17px;
+			color: #898989;
+			width: $article-width;
+			margin: auto;
+		}
+		$info-height: 23px;
+
+		.logo {
+			position: absolute;
+			left: 0px;
+			max-height: $info-height;
+		}
+
+		.info-image {
+			position: absolute;
+			right: 0px;
+			max-height: $info-height;
+		}
+
+		hr {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			margin-bottom: 0;
+			margin-top: 0;
+			height: 1px;
+			border: none;
+			background-color: rgba(194, 194, 194, 0.59);
+			box-shadow: 0px 1px 3px 0px rgba(85, 85, 85, 0.33);
+		}
+	}
+}

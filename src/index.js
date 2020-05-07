@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Article from "./components/article/article.jsx";
+import ArticleWrapper from "./components/article/article.jsx";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Article />
+		<ArticleWrapper />
 	</React.StrictMode>,
 	document.getElementById("root")
 );
