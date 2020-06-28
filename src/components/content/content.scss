@@ -6,6 +6,7 @@ $article-width: 640px;
 	margin-right: auto;
 	margin-top: 76px;
 	font-family: helvetica;
+	pointer-events: none;
 
 	.extras {
 		display: flex;
@@ -29,4 +30,19 @@ $article-width: 640px;
 			margin-left: 12px;
 		}
 	}
+}
+
+figure {
+	margin: auto;
+	img {
+		text-align: center;
+		width: 100%;
+		margin: auto;
+	}
+	max-width: 500px;
+}
+
+img {
+	margin: auto;
+	max-width: $article-width;
 }

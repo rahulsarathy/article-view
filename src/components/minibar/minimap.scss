@@ -1,0 +1,82 @@
+$start: 44px;
+$end: 52px;
+
+.minimap-wrapper-enter,
+.minimap-wrapper-appear {
+	opacity: 0;
+	right: $start;
+	transition: opacity 500ms;
+	transition: right 500ms;
+	// pointer-events: none;
+}
+
+.minimap-wrapper-enter-active,
+.minimap-wrapper-appear-active {
+	opacity: 1;
+	transition: opacity 500ms;
+	transition: right 500ms;
+	// pointer-events: none;
+
+	right: $end;
+}
+
+.minimap-wrapper-enter-done,
+.minimap-wrapper-appear-done {
+	opacity: 1;
+
+	right: $end;
+}
+
+.minimap-wrapper-exit {
+	opacity: 1;
+	right: $end;
+	// pointer-events: none;
+}
+
+.minimap-wrapper-exit-active {
+	opacity: 0;
+	right: $start;
+	transition: right 300ms, opacity 300ms;
+	pointer-events: none;
+}
+
+.minimap-wrapper-exit-done {
+	// opacity: 0.5;
+	right: $start;
+	opacity: 1;
+	pointer-events: none;
+}
+
+.content-wrapper {
+	user-select: none;
+	transform: scale(0.06875);
+	position: absolute;
+	top: 0px;
+	// right: 8px;
+	transform-origin: top left;
+	width: 640px;
+	z-index: 0;
+}
+
+.minimap-wrapper {
+}
+
+.minimap {
+	border-style: solid;
+	border-width: 1px;
+
+	position: relative;
+}
+
+.viewport {
+	position: absolute;
+	// right: 8px;
+	background-color: white;
+	width: 44px;
+	opacity: 0.5;
+	z-index: 1;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: #d6d6d6;
+}

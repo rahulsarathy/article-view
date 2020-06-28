@@ -53,6 +53,7 @@ class Article extends Component {
 					height={height}
 					offset={offset}
 					total_height={total_height}
+					article_json={article_json}
 				/>
 				<Content article_json={article_json} />
 			</div>

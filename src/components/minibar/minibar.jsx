@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "./minibar.scss";
+import MiniMap from "./minimap.jsx";
 
 export default class MiniBar extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			hover: false,
+			hover: true,
 		};
 	}
 
@@ -17,15 +18,25 @@ export default class MiniBar extends Component {
 	}
 
 	handleMouseLeave(e) {
+		console.log(e);
+		e.persist();
 		this.setState({
 			hover: false,
+		});
+	}
+
+	toggleHover() {
+		let hover = this.state.hover;
+		this.setState({
+			hover: !hover,
 		});
 	}
 
 	renderMiniMap() {}
 
 	render() {
-		let { height, total_height, offset } = this.props;
+		let { height, total_height, offset, article_json } = this.props;
+		let { hover } = this.state;
 
 		let scrollbar_height = (height / total_height) * 560;
 
@@ -41,13 +52,20 @@ export default class MiniBar extends Component {
 			top: scrollbar_pos + "px",
 		};
 
+		let scale = 40 / 640;
+
 		return (
 			<div
+				className="minibar"
 				onMouseLeave={this.handleMouseLeave.bind(this)}
 				onMouseEnter={this.handleMouseEnter.bind(this)}
-				className="minibar"
 			>
 				<div style={style} className="scroll"></div>
+				<MiniMap
+					article_json={article_json}
+					hover={hover}
+					viewport_style={style}
+				/>
 			</div>
 		);
 	}
